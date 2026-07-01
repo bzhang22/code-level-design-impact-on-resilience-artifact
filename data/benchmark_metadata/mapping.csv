@@ -1,0 +1,33 @@
+group,program,role,insight_num,insight_name,mechanism,raw_csv,raw_impl,paper_ref
+controlled_pairs,verdict_encoding,base,1,Prefer exact acceptance predicates over truthy flags,verdict encoding,FI_characterization_pool.csv,sm_01_naive,Sec.V Insight 1 (controlled)
+controlled_pairs,verdict_encoding,variant,1,Prefer exact acceptance predicates over truthy flags,verdict encoding,FI_characterization_pool.csv,sm_02_naive_earlyexit,Sec.V Insight 1 (controlled)
+controlled_pairs,loop_invariant,base,2,Compute fixed values outside the loop,fewer fault windows,FI_ctrl.csv,ctrl_h_base,Sec.V Insight 2 (controlled)
+controlled_pairs,loop_invariant,variant,2,Compute fixed values outside the loop,fewer fault windows,FI_ctrl.csv,ctrl_h_prime,Sec.V Insight 2 (controlled)
+controlled_pairs,branch_selection,base,3,Prefer a branch when a selection should preserve an input value,real-value vs arithmetic,FI_ctrl.csv,ctrl_b_prime,Sec.V Insight 3 (controlled)
+controlled_pairs,branch_selection,variant,3,Prefer a branch when a selection should preserve an input value,real-value vs arithmetic,FI_ctrl.csv,ctrl_b_base,Sec.V Insight 3 (controlled)
+controlled_pairs,conditional_write,base,4,Write output-relevant state only when it changes,fewer writes,FI_round3.csv,cw_base,Sec.V Insight 4 (controlled)
+controlled_pairs,conditional_write,variant,4,Write output-relevant state only when it changes,fewer writes,FI_round3.csv,cw_prime,Sec.V Insight 4 (controlled)
+controlled_pairs,bounded_lookup,base,5,Replace wide arithmetic chains with bounded values,bit-exposure (shorten),FI_ctrl.csv,ctrl_t_base,Sec.V Insight 5 (controlled)
+controlled_pairs,bounded_lookup,variant,5,Replace wide arithmetic chains with bounded values,bit-exposure (shorten),FI_ctrl.csv,ctrl_t_prime,Sec.V Insight 5 (controlled)
+controlled_pairs,masked_accumulator,base,6,Keep a wider accumulator when discarded bits cannot reach the output,bit-exposure (mask),FI_round4.csv,hm_base,Sec.V Insight 6 (controlled)
+controlled_pairs,masked_accumulator,variant,6,Keep a wider accumulator when discarded bits cannot reach the output,bit-exposure (mask),FI_round4.csv,hm_prime,Sec.V Insight 6 (controlled)
+applications,running_maximum,base,3,branch,real-value vs arithmetic,FI_evalbig.csv,ev_peak_base,Table V
+applications,running_maximum,variant,3,branch,real-value vs arithmetic,FI_evalbig.csv,ev_peak_res,Table V
+applications,dna_motif_search,base,1,verdict,verdict encoding,FI_evalbig.csv,ev_dna_base,Table V
+applications,dna_motif_search,variant,1,verdict,verdict encoding,FI_evalbig.csv,ev_dna_res,Table V
+applications,string_search,base,1,verdict,verdict encoding,FI_evalbig.csv,b1_base,Table V
+applications,string_search,variant,1,verdict,verdict encoding,FI_evalbig.csv,b1_res,Table V
+applications,dijkstra,base,1,verdict,verdict encoding,FI_dj.csv,dj_flag,Table V (N=5000)
+applications,dijkstra,variant,1,verdict,verdict encoding,FI_dj.csv,dj_inline,Table V (N=5000)
+applications,histogram,base,5,table,bit-exposure (shorten),FI_evalbig.csv,b2_base,Table V
+applications,histogram,variant,5,table,bit-exposure (shorten),FI_evalbig.csv,b2_res,Table V
+applications,transform_sum,base,5,table,bit-exposure (shorten),FI_evalbig.csv,ev_lut_base,Table V
+applications,transform_sum,variant,5,table,bit-exposure (shorten),FI_evalbig.csv,ev_lut_res,Table V
+applications,weighted_map,base,2,hoist,fewer fault windows,FI_evalbig.csv,ev_hoist_base,Table V
+applications,weighted_map,variant,2,hoist,fewer fault windows,FI_evalbig.csv,ev_hoist_res,Table V
+applications,threshold_sum,base,2,hoist,fewer fault windows,FI_evalbig.csv,b3_base,Table V
+applications,threshold_sum,variant,2,hoist,fewer fault windows,FI_evalbig.csv,b3_res,Table V
+applications,record_scan,base,125,stacked (1+2+5),verdict+hoist+table,FI_stack.csv,rs_v0,Table V (stacked)
+applications,record_scan,variant,125,stacked (1+2+5),verdict+hoist+table,FI_stack.csv,rs_v3,Table V (stacked)
+applications,blackscholes,base,3,branch,real-value vs arithmetic,FI_evalbig.csv,bs_base,Sec.VI scope boundary (n.s.)
+applications,blackscholes,variant,3,branch,real-value vs arithmetic,FI_evalbig.csv,bs_branchless,Sec.VI scope boundary (n.s.)

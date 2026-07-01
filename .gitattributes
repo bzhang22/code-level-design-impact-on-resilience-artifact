@@ -1,0 +1,11 @@
+# Force LF for all text so shell scripts stay executable on Linux/macOS
+# regardless of the checkout platform.
+* text=auto eol=lf
+*.sh text eol=lf
+*.py text eol=lf
+
+# Binary assets: never touch line endings.
+*.png binary
+*.pdf binary
+*.tar.gz binary
+*.zip binary

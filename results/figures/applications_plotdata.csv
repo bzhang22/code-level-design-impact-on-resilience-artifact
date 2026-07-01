@@ -1,0 +1,11 @@
+program,sdc_base_pct,ci_base,sdc_variant_pct,ci_variant
+running_maximum,8.5,1.7285,1.7,0.8012
+dna_motif_search,1.4,0.7282,0.2,0.2769
+string_search,2.9,1.0401,1.5,0.7534
+dijkstra,4.22,0.5573,2.18,0.4048
+histogram,30.3,2.8484,20.7,2.5112
+transform_sum,30.5,2.8536,24.4,2.662
+weighted_map,32.7,2.9076,29.0,2.8124
+threshold_sum,23.1,2.6123,21.7,2.5549
+record_scan,17.2,2.339,14.8,2.2009
+blackscholes,17.1,2.3336,15.9,2.2665

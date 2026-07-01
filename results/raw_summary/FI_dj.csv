@@ -1,0 +1,3 @@
+algorithm,impl,SDC,Crash,Benign,Hang,Total,DI_total_cycle,totalindex,status
+Dijkstra,dj_flag,211,1251,3538,0,5000,222482944,224,OK
+Dijkstra,dj_inline,109,1395,3496,0,5000,199766644,217,OK

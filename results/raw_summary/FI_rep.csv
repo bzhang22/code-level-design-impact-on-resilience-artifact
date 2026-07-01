@@ -1,0 +1,9 @@
+algorithm,impl,SDC,Crash,Benign,Hang,Total,DI_total_cycle,totalindex,status
+Replication,rep_b_base,112,493,395,0,1000,201007135,837,OK
+Replication,rep_b_prime,123,490,387,0,1000,219006949,839,OK
+Replication,rep_h_base,354,458,188,0,1000,228006930,765,OK
+Replication,rep_h_prime,285,507,208,0,1000,213006935,765,OK
+Replication,rep_t_base,302,481,217,0,1000,219006930,762,OK
+Replication,rep_t_prime,250,527,223,0,1000,219018196,782,OK
+Replication,rep_v_base,7,534,459,0,1000,222382022,809,OK
+Replication,rep_v_prime,5,489,506,0,1000,222387888,811,OK

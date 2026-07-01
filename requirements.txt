@@ -1,0 +1,4 @@
+# The analysis pipeline (aggregate_results.py, generate_tables.py) uses only the
+# Python 3 standard library. matplotlib is needed ONLY to render the figures as
+# PNG/PDF; without it, generate_figures.py still writes the plotted values as CSV.
+matplotlib>=3.3 ; python_version >= "3.6"

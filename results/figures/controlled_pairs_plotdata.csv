@@ -1,0 +1,7 @@
+program,sdc_base_pct,ci_base,sdc_variant_pct,ci_variant
+verdict_encoding,14.3,2.1698,1.1,0.6465
+loop_invariant,35.2,2.9602,30.4,2.851
+branch_selection,12.1,2.0214,6.2,1.4947
+conditional_write,37.0,2.9925,21.9,2.5633
+bounded_lookup,32.8,2.9099,26.1,2.7221
+masked_accumulator,25.2,2.691,21.0,2.5245

@@ -1,0 +1,11 @@
+program,insight,mechanism,sdc_base_pct,sdc_variant_pct,di_base,di_variant,n_base,n_variant,z,significant_0.05,no_added_work
+running_maximum,3,real-value vs arithmetic,8.5,1.7,740007544,670007721,1000,1000,6.911554240267334,yes,yes
+dna_motif_search,1,verdict encoding,1.4,0.2,1592004538,1620004469,1000,1000,3.0120724833843706,yes,no
+string_search,1,verdict encoding,2.9,1.5,1144006630,1164006601,1000,1000,2.134186016616865,yes,no
+dijkstra,1,verdict encoding,4.22,2.18,222482944,199766644,5000,5000,5.795454545454546,yes,yes
+histogram,5,bit-exposure (shorten),30.3,20.7,750009018,750011836,1000,1000,4.9250201151490725,yes,no
+transform_sum,5,bit-exposure (shorten),30.5,24.4,750007526,730010856,1000,1000,3.0565039008937775,yes,yes
+weighted_map,2,fewer fault windows,32.7,29.0,750007526,710007530,1000,1000,1.7912782383293766,no,yes
+threshold_sum,2,fewer fault windows,23.1,21.7,780027800,740027804,1000,1000,0.7508586150493416,no,yes
+record_scan,125,verdict+hoist+table,17.2,14.8,233730229,234489594,1000,1000,1.4638501094227994,no,no
+blackscholes,3,real-value vs arithmetic,17.1,15.9,295268159,322961479,1000,1000,0.7229046833945793,no,no

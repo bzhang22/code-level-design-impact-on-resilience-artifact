@@ -1,0 +1,7 @@
+algorithm,impl,SDC,Crash,Benign,Hang,Total,DI_total_cycle,totalindex,status
+Round3,cse_base,302,523,175,0,1000,243006930,762,OK
+Round3,cse_prime,318,485,197,0,1000,216006930,761,OK
+Round3,cw_base,370,520,110,0,1000,889189859,827,OK
+Round3,cw_prime,219,670,111,0,1000,1026831919,821,OK
+Round3,mat_base,275,497,228,0,1000,309007072,1140,OK
+Round3,mat_prime,304,474,222,0,1000,213006930,758,OK

@@ -1,0 +1,22 @@
+# Random seeds used by this artifact.
+#
+# There are two independent seeds:
+#
+#   input-generation seed  (default 42)
+#       Passed to data/inputs/generate_inputs.py. Determines the (portable,
+#       cross-platform) input each program reads. Base and variant of a pair
+#       ALWAYS share one input, so a fixed input seed keeps the comparison fair.
+#
+#   injection seed         (default 2026)
+#       Written as fi_random_seed into the LLFI run config. Makes LLFI's choice
+#       of which dynamic instruction to corrupt reproducible from run to run.
+#
+# IMPORTANT: the fault-injection campaign reported in the paper did NOT fix an
+# injection seed (LLFI used its default randomisation). The reported SDC
+# probabilities are therefore statistical estimates with a sampling margin of
+# about +/-3.1 percentage points at 1000 injections (95% confidence). A seeded
+# re-run reproduces itself exactly but will not match the paper bit-for-bit; it
+# should agree within that margin, and the base-vs-variant DIRECTION is stable.
+
+input_seed_default = 42
+injection_seed_default = 2026

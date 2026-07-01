@@ -1,0 +1,33 @@
+group,program,role,insight,insight_name,mechanism,seed,num_injections,benign_count,sdc_count,crash_count,hang_count,sdc_probability_pct,ci95_halfwidth_pct,dynamic_instruction_count,raw_csv,raw_impl,paper_ref
+controlled_pairs,verdict_encoding,base,1,Prefer exact acceptance predicates over truthy flags,verdict encoding,unseeded,1000,338,143,519,0,14.3,2.1698,50675874,FI_characterization_pool.csv,sm_01_naive,Sec.V Insight 1 (controlled)
+controlled_pairs,verdict_encoding,variant,1,Prefer exact acceptance predicates over truthy flags,verdict encoding,unseeded,1000,433,11,556,0,1.1,0.6465,50334679,FI_characterization_pool.csv,sm_02_naive_earlyexit,Sec.V Insight 1 (controlled)
+controlled_pairs,loop_invariant,base,2,Compute fixed values outside the loop,fewer fault windows,unseeded,1000,214,352,434,0,35.2,2.9602,225006964,FI_ctrl.csv,ctrl_h_base,Sec.V Insight 2 (controlled)
+controlled_pairs,loop_invariant,variant,2,Compute fixed values outside the loop,fewer fault windows,unseeded,1000,200,304,496,0,30.4,2.851,213006968,FI_ctrl.csv,ctrl_h_prime,Sec.V Insight 2 (controlled)
+controlled_pairs,branch_selection,base,3,Prefer a branch when a selection should preserve an input value,real-value vs arithmetic,unseeded,1000,423,121,456,0,12.1,2.0214,222006948,FI_ctrl.csv,ctrl_b_prime,Sec.V Insight 3 (controlled)
+controlled_pairs,branch_selection,variant,3,Prefer a branch when a selection should preserve an input value,real-value vs arithmetic,unseeded,1000,454,62,484,0,6.2,1.4947,201007125,FI_ctrl.csv,ctrl_b_base,Sec.V Insight 3 (controlled)
+controlled_pairs,conditional_write,base,4,Write output-relevant state only when it changes,fewer writes,unseeded,1000,110,370,520,0,37.0,2.9925,889189859,FI_round3.csv,cw_base,Sec.V Insight 4 (controlled)
+controlled_pairs,conditional_write,variant,4,Write output-relevant state only when it changes,fewer writes,unseeded,1000,111,219,670,0,21.9,2.5633,1026831919,FI_round3.csv,cw_prime,Sec.V Insight 4 (controlled)
+controlled_pairs,bounded_lookup,base,5,Replace wide arithmetic chains with bounded values,bit-exposure (shorten),unseeded,1000,200,328,472,0,32.8,2.9099,219006964,FI_ctrl.csv,ctrl_t_base,Sec.V Insight 5 (controlled)
+controlled_pairs,bounded_lookup,variant,5,Replace wide arithmetic chains with bounded values,bit-exposure (shorten),unseeded,1000,213,261,526,0,26.1,2.7221,219009782,FI_ctrl.csv,ctrl_t_prime,Sec.V Insight 5 (controlled)
+controlled_pairs,masked_accumulator,base,6,Keep a wider accumulator when discarded bits cannot reach the output,bit-exposure (mask),unseeded,1000,303,252,445,0,25.2,2.691,213006931,FI_round4.csv,hm_base,Sec.V Insight 6 (controlled)
+controlled_pairs,masked_accumulator,variant,6,Keep a wider accumulator when discarded bits cannot reach the output,bit-exposure (mask),unseeded,1000,295,210,495,0,21.0,2.5245,210006932,FI_round4.csv,hm_prime,Sec.V Insight 6 (controlled)
+applications,running_maximum,base,3,branch,real-value vs arithmetic,unseeded,1000,434,85,481,0,8.5,1.7285,740007544,FI_evalbig.csv,ev_peak_base,Table V
+applications,running_maximum,variant,3,branch,real-value vs arithmetic,unseeded,1000,503,17,480,0,1.7,0.8012,670007721,FI_evalbig.csv,ev_peak_res,Table V
+applications,dna_motif_search,base,1,verdict,verdict encoding,unseeded,1000,495,14,491,0,1.4,0.7282,1592004538,FI_evalbig.csv,ev_dna_base,Table V
+applications,dna_motif_search,variant,1,verdict,verdict encoding,unseeded,1000,502,2,496,0,0.2,0.2769,1620004469,FI_evalbig.csv,ev_dna_res,Table V
+applications,string_search,base,1,verdict,verdict encoding,unseeded,1000,454,29,517,0,2.9,1.0401,1144006630,FI_evalbig.csv,b1_base,Table V
+applications,string_search,variant,1,verdict,verdict encoding,unseeded,1000,519,15,466,0,1.5,0.7534,1164006601,FI_evalbig.csv,b1_res,Table V
+applications,dijkstra,base,1,verdict,verdict encoding,unseeded,5000,3538,211,1251,0,4.22,0.5573,222482944,FI_dj.csv,dj_flag,Table V (N=5000)
+applications,dijkstra,variant,1,verdict,verdict encoding,unseeded,5000,3496,109,1395,0,2.18,0.4048,199766644,FI_dj.csv,dj_inline,Table V (N=5000)
+applications,histogram,base,5,table,bit-exposure (shorten),unseeded,1000,215,303,482,0,30.3,2.8484,750009018,FI_evalbig.csv,b2_base,Table V
+applications,histogram,variant,5,table,bit-exposure (shorten),unseeded,1000,215,207,578,0,20.7,2.5112,750011836,FI_evalbig.csv,b2_res,Table V
+applications,transform_sum,base,5,table,bit-exposure (shorten),unseeded,1000,229,305,466,0,30.5,2.8536,750007526,FI_evalbig.csv,ev_lut_base,Table V
+applications,transform_sum,variant,5,table,bit-exposure (shorten),unseeded,1000,276,244,480,0,24.4,2.662,730010856,FI_evalbig.csv,ev_lut_res,Table V
+applications,weighted_map,base,2,hoist,fewer fault windows,unseeded,1000,203,327,470,0,32.7,2.9076,750007526,FI_evalbig.csv,ev_hoist_base,Table V
+applications,weighted_map,variant,2,hoist,fewer fault windows,unseeded,1000,208,290,502,0,29.0,2.8124,710007530,FI_evalbig.csv,ev_hoist_res,Table V
+applications,threshold_sum,base,2,hoist,fewer fault windows,unseeded,1000,283,231,486,0,23.1,2.6123,780027800,FI_evalbig.csv,b3_base,Table V
+applications,threshold_sum,variant,2,hoist,fewer fault windows,unseeded,1000,266,217,517,0,21.7,2.5549,740027804,FI_evalbig.csv,b3_res,Table V
+applications,record_scan,base,125,stacked (1+2+5),verdict+hoist+table,unseeded,1000,350,172,478,0,17.2,2.339,233730229,FI_stack.csv,rs_v0,Table V (stacked)
+applications,record_scan,variant,125,stacked (1+2+5),verdict+hoist+table,unseeded,1000,355,148,497,0,14.8,2.2009,234489594,FI_stack.csv,rs_v3,Table V (stacked)
+applications,blackscholes,base,3,branch,real-value vs arithmetic,unseeded,1000,747,171,82,0,17.1,2.3336,295268159,FI_evalbig.csv,bs_base,Sec.VI scope boundary (n.s.)
+applications,blackscholes,variant,3,branch,real-value vs arithmetic,unseeded,1000,768,159,73,0,15.9,2.2665,322961479,FI_evalbig.csv,bs_branchless,Sec.VI scope boundary (n.s.)

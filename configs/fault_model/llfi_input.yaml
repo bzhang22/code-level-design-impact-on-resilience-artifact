@@ -1,0 +1,35 @@
+# LLFI fault-injection configuration (reference template).
+#
+# scripts/fault_inject.sh writes an equivalent input.yaml per program at run
+# time; this file documents the fault model in one place.
+#
+# Fault model: a single bit flip in the destination register (output value) of
+# one dynamically executed LLVM IR instruction, per run. Instruction types that
+# have no meaningful output-value target are excluded (ret, alloca, call, phi).
+# This matches the model described in the paper (Section III / Section IV).
+
+defaultTimeOut: 8              # seconds; kills runs that hang after a fault
+
+compileOption:
+    instSelMethod:
+      - insttype:
+          include:
+            - all
+          exclude:
+            - ret
+            - alloca
+            - call
+            - phi
+    regSelMethod: regloc
+    regloc: dstreg            # inject into the instruction's destination register
+
+runOption:
+    - run:
+        numOfRuns: 1000        # injections per program (paper: 1000; 5000 for Dijkstra)
+        fi_type: bitflip       # single bit flip
+        fi_random_seed: 2026   # makes the choice of injection site reproducible run-to-run.
+                               # NOTE: the paper's campaign left this UNSET and used LLFI's
+                               # default randomisation, so paper numbers are statistical
+                               # estimates (margin +/-3.1% at n=1000). Setting it here lets a
+                               # reviewer's re-run be deterministic. See
+                               # docs/fault_injection_protocol.md.

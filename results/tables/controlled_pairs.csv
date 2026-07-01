@@ -1,0 +1,7 @@
+program,insight,mechanism,sdc_base_pct,sdc_variant_pct,di_base,di_variant,n_base,n_variant,z,significant_0.05,no_added_work
+verdict_encoding,1,verdict encoding,14.3,1.1,50675874,50334679,1000,1000,11.071659483040662,yes,yes
+loop_invariant,2,fewer fault windows,35.2,30.4,225006964,213006968,1000,1000,2.286149784296062,yes,yes
+branch_selection,3,real-value vs arithmetic,12.1,6.2,222006948,201007125,1000,1000,4.575768043773719,yes,yes
+conditional_write,4,fewer writes,37.0,21.9,889189859,1026831919,1000,1000,7.407485172927147,yes,no
+bounded_lookup,5,bit-exposure (shorten),32.8,26.1,219006964,219009782,1000,1000,3.286764944278933,yes,no
+masked_accumulator,6,bit-exposure (mask),25.2,21.0,213006931,210006932,1000,1000,2.2282562468008,yes,yes
