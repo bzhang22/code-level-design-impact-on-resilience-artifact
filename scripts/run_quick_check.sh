@@ -1,21 +1,4 @@
 #!/bin/bash
-# ---------------------------------------------------------------------------
-# run_quick_check.sh -- fast end-to-end sanity check of the whole pipeline.
-#
-# Builds and fault-injects two representative base/variant pairs with a small
-# injection budget, classifies the outcomes, writes a CSV, and prints the SDC
-# comparison. It validates that build + injection + classification + result
-# aggregation all work. It is NOT meant to reproduce the exact SDC
-# probabilities in the paper: the injection budget is deliberately tiny, so
-# sampling noise is large.
-#
-# Run this INSIDE the LLFI container (see README / Dockerfile).
-#
-# Options:
-#   --num-injections N   injections per variant (default 80)
-#   --seed S             LLFI random seed        (default 2026)
-#   --output-dir DIR     where to write results  (default results/reproduced)
-# ---------------------------------------------------------------------------
 set -u
 HERE="$(cd "$(dirname "$0")/.." && pwd)"
 N=80; SEED=2026; OUTDIR="$HERE/results/reproduced"
@@ -41,7 +24,6 @@ echo "algorithm,impl,SDC,Crash,Benign,Hang,Total,DI_total_cycle,totalindex,statu
 
 echo "== quick check: $N injections/variant, seed $SEED =="
 
-# pair 1: verdict encoding (string search) -- uses the small search input
 bash "$HERE/scripts/fault_inject.sh" \
   "$HERE/src/controlled_pairs/verdict_encoding/base.cpp" \
   "$HERE/data/inputs/quick_search.txt" "$N" "$SEED" "$CSV"
@@ -49,7 +31,6 @@ bash "$HERE/scripts/fault_inject.sh" \
   "$HERE/src/controlled_pairs/verdict_encoding/variant.cpp" \
   "$HERE/data/inputs/quick_search.txt" "$N" "$SEED" "$CSV"
 
-# pair 2: branch vs branchless running maximum -- uses the small int input
 bash "$HERE/scripts/fault_inject.sh" \
   "$HERE/src/applications/running_maximum/base.cpp" \
   "$HERE/data/inputs/quick_ints.txt" "$N" "$SEED" "$CSV"
@@ -61,7 +42,6 @@ echo
 echo "== results ($CSV) =="
 cat "$CSV"
 
-# Print base-vs-variant SDC direction using python (available in the image).
 python3 - "$CSV" <<'PY'
 import csv, sys
 rows = list(csv.DictReader(open(sys.argv[1])))

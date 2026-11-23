@@ -1,6 +1,3 @@
-// PARSEC blackscholes (Intel 2007), serial, adapted for the LLFI harness:
-// reads option data from numbers.txt, prints a bit-checksum of all prices to stdout.
-// BASELINE: faithful PARSEC control flow (branches in CNDF sign and put/call).
 #include <cstdio>
 #include <cstdlib>
 #include <cmath>
@@ -13,7 +10,7 @@ fptype CNDF( fptype InputX ) {
     int sign;
     fptype OutputX, xInput, xNPrimeofX, expValues, xK2, xK2_2, xK2_3, xK2_4, xK2_5;
     fptype xLocal, xLocal_1, xLocal_2, xLocal_3;
-    if (InputX < 0.0) { InputX = -InputX; sign = 1; } else sign = 0;   // BRANCH (keep)
+    if (InputX < 0.0) { InputX = -InputX; sign = 1; } else sign = 0;
     xInput = InputX;
     expValues = exp(-0.5f * InputX * InputX);
     xNPrimeofX = expValues * inv_sqrt_2xPI;
@@ -27,7 +24,7 @@ fptype CNDF( fptype InputX ) {
     xLocal_1 = xLocal_2 + xLocal_1;
     xLocal = xLocal_1 * xNPrimeofX;  xLocal = 1.0 - xLocal;
     OutputX = xLocal;
-    if (sign) { OutputX = 1.0 - OutputX; }                              // BRANCH (keep)
+    if (sign) { OutputX = 1.0 - OutputX; }
     return OutputX;
 }
 
@@ -44,7 +41,7 @@ fptype BlkSchls( fptype sptprice, fptype strike, fptype rate, fptype volatility,
     d1 = xD1; d2 = xD2;
     NofXd1 = CNDF( d1 ); NofXd2 = CNDF( d2 );
     FutureValueX = strike * ( exp( -(rate)*(time) ) );
-    if (otype == 0) {                                                  // BRANCH (keep)
+    if (otype == 0) {
         OptionPrice = (sptprice * NofXd1) - (FutureValueX * NofXd2);
     } else {
         NegNofXd1 = (1.0 - NofXd1); NegNofXd2 = (1.0 - NofXd2);
@@ -77,7 +74,7 @@ int main(){
     for(int j=0;j<NUM_RUNS;j++)
         for(int i=0;i<numOptions;i++)
             prices[i]=BlkSchls(sptprice[i],strike[i],rate[i],volatility[i],otime[i],otype[i]);
-    unsigned long long chk=1469598103934665603ULL;       // FNV-style hash of all price bits
+    unsigned long long chk=1469598103934665603ULL;
     for(int i=0;i<numOptions;i++){ unsigned int u; memcpy(&u,&prices[i],4); chk=(chk^u)*1099511628211ULL; }
     printf("%llu\n",chk);
     return 0;

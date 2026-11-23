@@ -2,8 +2,6 @@
 #include <vector>
 #include <fstream>
 using namespace std;
-// Keyword count (stringsearch). RESILIENT: full scan, EQUALITY verdict (mc==m).
-// Identical output and identical instruction count to b1_base (both scan all m).
 int main(){
     vector<int> v; ifstream f("numbers.txt"); int x;
     while(f>>x) v.push_back(x); f.close();
@@ -16,8 +14,8 @@ int main(){
     long long cnt=0;
     for(int i=0;i+m<=n;++i){
         int mc=0;
-        for(int j=0;j<m;++j) if(text[i+j]==pat[j]) mc++;        // count matches, full scan
-        if(mc==m) cnt++;                                         // equality verdict
+        for(int j=0;j<m;++j) if(text[i+j]==pat[j]) mc++;
+        if(mc==m) cnt++;
     }
     cout<<cnt<<"\n";
     return 0;

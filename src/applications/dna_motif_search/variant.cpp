@@ -1,5 +1,3 @@
-// DNA motif search. RESILIENT: per-position EQUALITY verdict (mc==m), full scan.
-// Identical output and ~identical DI to ev_dna_base.
 #include <cstdio>
 #include <vector>
 #include <fstream>
@@ -13,8 +11,8 @@ int main(){
     int n=(int)text.size(); long long cnt=0;
     for(int i=0;i+m<=n;++i){
         int mc=0;
-        for(int j=0;j<m;++j) if(text[i+j]==pat[j]) mc++;    // count, full scan
-        if(mc==m) cnt++;                                     // equality verdict
+        for(int j=0;j<m;++j) if(text[i+j]==pat[j]) mc++;
+        if(mc==m) cnt++;
     }
     printf("%lld\n",cnt);
     return 0;

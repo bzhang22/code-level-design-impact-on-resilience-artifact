@@ -2,7 +2,6 @@
 #include <vector>
 #include <fstream>
 using namespace std;
-// Transform histogram. BASELINE: compute (r*r)%97 inline (wide intermediate r*r).
 int main(){
     vector<int> v; ifstream f("numbers.txt"); int x;
     while(f>>x) v.push_back(x); f.close();

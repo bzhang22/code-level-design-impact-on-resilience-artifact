@@ -1,5 +1,3 @@
-// Per-element transform sum, reading the transform from a precomputed table.
-// Identical output to ev_lut_base.
 #include <cstdio>
 #include <vector>
 #include <fstream>

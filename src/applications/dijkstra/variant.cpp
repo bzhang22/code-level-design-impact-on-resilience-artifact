@@ -1,6 +1,3 @@
-// MiBench dijkstra (network/dijkstra), relaxation verdict written INLINE (resilient,
-// as in the original MiBench source). Reads the adjacency matrix from numbers.txt,
-// runs shortest paths from every source, prints a checksum of all distances.
 #include <cstdio>
 #include <cstdlib>
 #define NUM_NODES 100
@@ -19,7 +16,7 @@ void run_dijkstra(int start){
         for(int i=0;i<NUM_NODES;i++){
             int iCost=AdjMatrix[iNode][i];
             if(iCost!=NONE){
-                if( (NONE==dist_[i]) || (dist_[i] > iCost+iDist) ){   // INLINE verdict
+                if( (NONE==dist_[i]) || (dist_[i] > iCost+iDist) ){
                     dist_[i]=iDist+iCost;
                     if(qt<QCAP){ qn[qt]=i; qd[qt]=iDist+iCost; qt++; }
                 }

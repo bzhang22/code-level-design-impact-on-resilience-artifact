@@ -1,4 +1,3 @@
-// Per-element transform sum, computing (r*r*r)%251 inline (wide intermediate).
 #include <cstdio>
 #include <vector>
 #include <fstream>

@@ -2,7 +2,6 @@
 #include <vector>
 #include <fstream>
 using namespace std;
-// Rolling hash kept in an 8-bit accumulator, narrow throughout (A=typical).
 int main(){
     vector<int> v; ifstream f("numbers.txt"); int x; while(f>>x) v.push_back(x); f.close();
     int n=(int)v.size(); unsigned char h=0;

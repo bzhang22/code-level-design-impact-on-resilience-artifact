@@ -1,5 +1,3 @@
-// sm_01_naive.cpp
-// Brute force: compare m elements at every candidate start position.
 #include <iostream>
 #include <vector>
 #include <fstream>

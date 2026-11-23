@@ -1,24 +1,4 @@
 #!/usr/bin/env python3
-"""
-Aggregate raw fault-injection summaries into one processed table.
-
-This script performs a *pure transform* of the raw injection counts. It does
-not invent, sample, or model any numbers: every output row is derived by
-arithmetic from the SDC/Crash/Benign/Hang counts recorded during the campaign
-(one row per implementation in results/raw_summary/). The mapping from raw
-implementation names to paper-facing program names, insights, and roles lives
-in data/benchmark_metadata/mapping.csv.
-
-Output columns (results/processed/summary.csv):
-  group, program, role, insight, insight_name, mechanism, seed,
-  num_injections, benign_count, sdc_count, crash_count, hang_count,
-  sdc_probability_pct, ci95_halfwidth_pct, dynamic_instruction_count,
-  raw_csv, raw_impl, paper_ref
-
-Usage:
-  python3 scripts/aggregate_results.py --input results/raw_summary \
-                                       --output results/processed
-"""
 import argparse
 import csv
 import math
@@ -31,16 +11,10 @@ def load_mapping(path):
 
 
 def index_raw_csv(path):
-    """Return {impl_name: row_dict} for one raw campaign CSV.
-
-    The raw CSVs share a schema but the first column is 'algorithm' or
-    'category' and the DI column is 'DI_total_cycle' or 'DI'. We normalise both.
-    """
     rows = {}
     with open(path, newline="") as fh:
         reader = csv.reader(fh)
         header = next(reader)
-        # locate columns by name
         col = {name: i for i, name in enumerate(header)}
         impl_i = col.get("impl", 1)
         di_i = col.get("DI_total_cycle", col.get("DI"))
@@ -80,7 +54,6 @@ def main():
 
     mapping = load_mapping(args.mapping)
 
-    # cache raw CSV indices
     raw_cache = {}
     def get_raw(csv_name):
         if csv_name not in raw_cache:

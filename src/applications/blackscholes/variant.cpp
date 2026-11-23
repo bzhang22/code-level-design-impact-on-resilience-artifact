@@ -1,6 +1,3 @@
-// PARSEC blackscholes, serial, adapted. VARIANT: the CNDF sign and put/call BRANCHES
-// rewritten BRANCHLESS (a plausible speed optimization). Identical output to bs_base.
-// Insight 4 predicts this raises SDC: the blend arithmetic carries faults into the price.
 #include <cstdio>
 #include <cstdlib>
 #include <cmath>
@@ -12,8 +9,8 @@ typedef float fptype;
 fptype CNDF( fptype InputX ) {
     fptype OutputX, xInput, xNPrimeofX, expValues, xK2, xK2_2, xK2_3, xK2_4, xK2_5;
     fptype xLocal, xLocal_1, xLocal_2, xLocal_3;
-    int neg = (InputX < 0.0f);                 // 0/1, no branch
-    xInput = InputX * (1.0f - 2.0f*neg);       // |InputX|, branchless
+    int neg = (InputX < 0.0f);
+    xInput = InputX * (1.0f - 2.0f*neg);
     expValues = exp(-0.5f * xInput * xInput);
     xNPrimeofX = expValues * inv_sqrt_2xPI;
     xK2 = 0.2316419 * xInput; xK2 = 1.0 + xK2; xK2 = 1.0 / xK2;
@@ -26,7 +23,7 @@ fptype CNDF( fptype InputX ) {
     xLocal_1 = xLocal_2 + xLocal_1;
     xLocal = xLocal_1 * xNPrimeofX;  xLocal = 1.0 - xLocal;
     OutputX = xLocal;
-    OutputX = OutputX + neg*(1.0f - 2.0f*OutputX);   // branchless sign correction
+    OutputX = OutputX + neg*(1.0f - 2.0f*OutputX);
     return OutputX;
 }
 
@@ -45,7 +42,7 @@ fptype BlkSchls( fptype sptprice, fptype strike, fptype rate, fptype volatility,
     FutureValueX = strike * ( exp( -(rate)*(time) ) );
     fptype call = (sptprice * NofXd1) - (FutureValueX * NofXd2);
     fptype put  = (FutureValueX * (1.0f - NofXd2)) - (sptprice * (1.0f - NofXd1));
-    return call + otype*(put - call);                // branchless put/call blend
+    return call + otype*(put - call);
 }
 
 int numOptions;

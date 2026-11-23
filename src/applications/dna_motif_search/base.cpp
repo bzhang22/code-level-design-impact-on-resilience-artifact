@@ -1,6 +1,3 @@
-// DNA motif search: count exact occurrences of a pattern in a 4-symbol text.
-// BASELINE: per-position nonzero-FLAG verdict, full scan. reads numbers.txt:
-// v[0]=m, pattern=v[1..m], text=rest. output: match count.
 #include <cstdio>
 #include <vector>
 #include <fstream>
@@ -14,7 +11,7 @@ int main(){
     int n=(int)text.size(); long long cnt=0;
     for(int i=0;i+m<=n;++i){
         int hit=1;
-        for(int j=0;j<m;++j) if(text[i+j]!=pat[j]) hit=0;   // flag, full scan
+        for(int j=0;j<m;++j) if(text[i+j]!=pat[j]) hit=0;
         if(hit) cnt++;
     }
     printf("%lld\n",cnt);

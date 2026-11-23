@@ -2,8 +2,6 @@
 #include <vector>
 #include <fstream>
 using namespace std;
-// Transform histogram. RESILIENT: read the transform from a small precomputed table.
-// Identical output to b2_base.
 int main(){
     vector<int> v; ifstream f("numbers.txt"); int x;
     while(f>>x) v.push_back(x); f.close();

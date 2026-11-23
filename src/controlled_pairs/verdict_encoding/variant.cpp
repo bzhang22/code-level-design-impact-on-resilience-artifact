@@ -1,5 +1,3 @@
-// sm_02_naive_earlyexit.cpp
-// Brute force with explicit inner break on first mismatch.
 #include <iostream>
 #include <vector>
 #include <fstream>

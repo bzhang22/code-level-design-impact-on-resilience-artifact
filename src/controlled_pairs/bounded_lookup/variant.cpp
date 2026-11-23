@@ -2,7 +2,6 @@
 #include <vector>
 #include <fstream>
 using namespace std;
-// Same result read from a precomputed 256-entry lookup table (prime).
 int main(){
     vector<int> v; ifstream f("numbers.txt"); int x;
     while(f>>x) v.push_back(x); f.close();

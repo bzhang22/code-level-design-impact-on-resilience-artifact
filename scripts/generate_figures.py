@@ -1,20 +1,4 @@
 #!/usr/bin/env python3
-"""
-Regenerate the paper's main figures from results/processed/summary.csv.
-
-Produces grouped bar charts of SDC probability, base versus variant, for
-(a) the six controlled pairs and (b) the case-study applications, saved as
-PNG and PDF under results/figures/. Error bars are the 95% confidence
-half-widths already computed by aggregate_results.py.
-
-matplotlib is the only third-party dependency in this artifact. If it is not
-installed, the script still writes the plotted values as CSV and exits 0, so
-the pipeline never hard-fails on a plotting library.
-
-Usage:
-  python3 scripts/generate_figures.py --summary results/processed/summary.csv \
-                                      --output results/figures
-"""
 import argparse
 import csv
 import os

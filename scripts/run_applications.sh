@@ -1,32 +1,4 @@
 #!/bin/bash
-# ---------------------------------------------------------------------------
-# run_applications.sh -- reproduce one (or all) of the Case Study programs
-# (paper Table V) via live fault injection.
-#
-# base = original implementation, variant = insight applied. Base and variant
-# share the same generated input. Results append to a CSV in the raw campaign
-# schema; feed it to aggregate_results.py + generate_tables.py.
-#
-# The default input sizes below are moderate so a pair finishes in minutes and
-# clearly shows the direction of the effect. The exact dynamic instruction
-# counts in the paper use the larger inputs documented in
-# docs/experiment_mapping.md; pass --size (or --input) to scale up. Absolute
-# SDC% shifts with input size, but the base-vs-variant comparison is stable.
-#
-# Run INSIDE the LLFI container.
-#
-# Options:
-#   --program NAME     one of: running_maximum dna_motif_search string_search
-#                      dijkstra histogram transform_sum weighted_map
-#                      threshold_sum record_scan blackscholes | all
-#   --variant WHICH    base | variant | both       (default both)
-#   --num-injections N per variant                 (default 1000; paper uses 5000 for dijkstra)
-#   --seed S           LLFI injection seed          (default 2026)
-#   --input-seed S     input-generation seed        (default 42)
-#   --size N           override the default input size
-#   --input FILE       use this input instead of generating one
-#   --output-dir DIR   default results/reproduced
-# ---------------------------------------------------------------------------
 set -u
 HERE="$(cd "$(dirname "$0")/.." && pwd)"
 PROG=all; WHICH=both; N=1000; SEED=2026; ISEED=42; SIZE=""; INPUT=""; OUTDIR="$HERE/results/reproduced"
@@ -51,7 +23,7 @@ GEN="$HERE/data/inputs/generate_inputs.py"
 ALL="running_maximum dna_motif_search string_search dijkstra histogram transform_sum weighted_map threshold_sum record_scan blackscholes"
 [ "$PROG" = all ] && LIST="$ALL" || LIST="$PROG"
 
-gen_input() {  # $1=program $2=outfile
+gen_input() {
   local p="$1" out="$2" sz="$SIZE"
   case "$p" in
     dna_motif_search) python3 "$GEN" --mode dna    --size "${sz:-2000000}" --pattern-len 8 --seed "$ISEED" --out "$out";;

@@ -2,7 +2,6 @@
 #include <vector>
 #include <fstream>
 using namespace std;
-// Compare-exchange via BRANCHLESS min/max, writing both slots every step (A=typical).
 int main(){
     vector<int> v; ifstream f("numbers.txt"); int x;
     while(f>>x && (int)v.size()<50000) v.push_back(x); f.close();

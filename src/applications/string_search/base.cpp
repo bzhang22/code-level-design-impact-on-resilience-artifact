@@ -2,8 +2,6 @@
 #include <vector>
 #include <fstream>
 using namespace std;
-// Keyword count (stringsearch). BASELINE: full scan, nonzero-FLAG verdict.
-// input: v[0]=m, pattern=v[1..m], text=rest. output: number of full matches.
 int main(){
     vector<int> v; ifstream f("numbers.txt"); int x;
     while(f>>x) v.push_back(x); f.close();
@@ -16,7 +14,7 @@ int main(){
     long long cnt=0;
     for(int i=0;i+m<=n;++i){
         int matched=1;
-        for(int j=0;j<m;++j) if(text[i+j]!=pat[j]) matched=0;   // flag, full scan
+        for(int j=0;j<m;++j) if(text[i+j]!=pat[j]) matched=0;
         if(matched) cnt++;
     }
     cout<<cnt<<"\n";

@@ -1,14 +1,4 @@
 #!/bin/bash
-# ---------------------------------------------------------------------------
-# build.sh -- compile-check every implementation and verify the toolchain.
-#
-# This is the lightweight build: it compiles each base/variant program with a
-# host C++ compiler to confirm all sources build and run, and checks that
-# Python 3 is available for the analysis pipeline. It does NOT build the LLFI
-# fault injector (that is heavy and lives in the Docker image; see README).
-#
-# Exit status is non-zero if any program fails to compile.
-# ---------------------------------------------------------------------------
 set -u
 HERE="$(cd "$(dirname "$0")/.." && pwd)"
 CXX="${CXX:-}"

@@ -2,7 +2,6 @@
 #include <vector>
 #include <fstream>
 using namespace std;
-// Compute (r*r)%97 on the fly each iteration (baseline).
 int main(){
     vector<int> v; ifstream f("numbers.txt"); int x;
     while(f>>x) v.push_back(x); f.close();

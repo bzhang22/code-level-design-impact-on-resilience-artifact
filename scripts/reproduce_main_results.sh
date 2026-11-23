@@ -1,14 +1,4 @@
 #!/bin/bash
-# ---------------------------------------------------------------------------
-# reproduce_main_results.sh -- regenerate the paper's main tables and figures
-# from the INCLUDED raw fault-injection summaries, using Python only.
-#
-# This needs no compiler, no Docker, and no fault injection: it recomputes the
-# SDC probabilities, two-proportion z-statistics, tables, and bar charts from
-# the real per-implementation counts in results/raw_summary/. It is the fastest
-# way to confirm that the numbers in the paper follow from the shipped data.
-# (matplotlib is optional; without it, figure *data* is still written as CSV.)
-# ---------------------------------------------------------------------------
 set -eu
 HERE="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$HERE"

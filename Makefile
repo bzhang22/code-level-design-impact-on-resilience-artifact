@@ -1,4 +1,3 @@
-# Convenience targets. See README.md for details.
 .PHONY: help build main-results quick-check docker-image clean
 
 help:

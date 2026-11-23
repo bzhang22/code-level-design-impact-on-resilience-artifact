@@ -1,6 +1,3 @@
-// MiBench dijkstra, relaxation verdict held in a nonzero FLAG (the fragile version a
-// developer might write). Identical distances and ~identical DI to dj_inline; differs
-// only in storing the relax decision in `upd` and testing `if(upd)`.
 #include <cstdio>
 #include <cstdlib>
 #define NUM_NODES 100
@@ -19,7 +16,7 @@ void run_dijkstra(int start){
         for(int i=0;i<NUM_NODES;i++){
             int iCost=AdjMatrix[iNode][i];
             if(iCost!=NONE){
-                int upd = (NONE==dist_[i]) || (dist_[i] > iCost+iDist);   // FLAG verdict
+                int upd = (NONE==dist_[i]) || (dist_[i] > iCost+iDist);
                 if(upd){
                     dist_[i]=iDist+iCost;
                     if(qt<QCAP){ qn[qt]=i; qd[qt]=iDist+iCost; qt++; }

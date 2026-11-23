@@ -1,7 +1,4 @@
 #!/bin/bash
-# ---------------------------------------------------------------------------
-# verify_environment.sh -- report what is available and what each workflow needs.
-# ---------------------------------------------------------------------------
 HERE="$(cd "$(dirname "$0")/.." && pwd)"
 echo "== environment check =="
 
